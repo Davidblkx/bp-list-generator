@@ -1,0 +1,34 @@
+{
+  "name": "bp-list-generator",
+  "version": "1.0.0",
+  "description": "generates repository of links for https://www.brainpickings.org/",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc --pretty",
+    "start": "tsc --watch --pretty",
+    "exec": "tsc && node app/index.js",
+    "just-run": "node app/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Davidblkx/bp-list-generator.git"
+  },
+  "keywords": [
+    "brainpickings",
+    "scrapper"
+  ],
+  "author": "David Pires",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Davidblkx/bp-list-generator/issues"
+  },
+  "homepage": "https://github.com/Davidblkx/bp-list-generator#readme",
+  "dependencies": {
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.18",
+    "prettier": "^1.15.3",
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.2"
+  }
+}
