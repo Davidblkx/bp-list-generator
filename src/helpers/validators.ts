@@ -1,3 +1,8 @@
+// ================================================================================================
+// helper funciton for Type guard
+// see https://www.typescriptlang.org/docs/handbook/advanced-types.html
+// ================================================================================================
+
 export function genericValidator<T>(input: unknown): input is T {
   const type = typeof input;
   return type !== 'undefined'

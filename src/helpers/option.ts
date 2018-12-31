@@ -1,3 +1,7 @@
+// ================================================================================================
+// helps validate and enforce type checking in runtime
+// ================================================================================================
+
 import { genericValidator } from './validators';
 
 export type SomeResolver<T> = (fn: ((data: T) => void)) => Option<T>;

@@ -25,7 +25,10 @@
         "trailing-comma": false,
         "arrow-parens": false,
         "use-isnan": false,
-        "object-literal-sort-keys": false
+        "object-literal-sort-keys": false,
+        "variable-name": {
+          "options": "allow-leading-underscore"
+        }
     },
     "rulesDirectory": []
 }

@@ -1,3 +1,7 @@
+// ================================================================================================
+// helper function to load urls and initialize cheerio
+// ================================================================================================
+
 import { load as _loadHtml } from 'cheerio';
 import { get as _get } from 'request-promise';
 import { none, Option, some } from './option';
