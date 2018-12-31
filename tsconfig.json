@@ -5,7 +5,8 @@
     "outDir": "app",
     "sourceMap": true,
     "allowJs": false,
-    "strict": true
+    "strict": true,
+    "noImplicitAny": true
   },
   "files": [
     "./node_modules/@types/mocha/index.d.ts",

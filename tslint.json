@@ -7,7 +7,25 @@
     "rules": {
         "quotemark": [true, "single", "avoid-escape"],
         "no-any": true,
-        "max-line-length": [true, 100]
+        "max-line-length": [true, 100],
+        "no-console": {
+            "severity": "warning",
+            "options": ["log"]
+        },
+        "indent": {
+            "options": "spaces"
+        },
+        "no-unused-variable": {
+            "options": "check-parameters"
+        },
+        "no-unused-expression": true,
+        "no-unsafe-any": true,
+        "no-var-keyword": true,
+        "interface-name": false,
+        "trailing-comma": false,
+        "arrow-parens": false,
+        "use-isnan": false,
+        "object-literal-sort-keys": false
     },
     "rulesDirectory": []
 }
