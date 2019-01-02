@@ -28,7 +28,9 @@
         "object-literal-sort-keys": false,
         "variable-name": {
           "options": "allow-leading-underscore"
-        }
+        },
+        "no-angle-bracket-type-assertion": false,
+        "prefer-for-of": false
     },
     "rulesDirectory": []
 }

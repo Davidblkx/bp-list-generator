@@ -4,4 +4,7 @@ export interface Post {
   subtitle: string;
   author: string;
   link: string;
+  tags: string[];
+  hashId: string;
+  id: string;
 }
