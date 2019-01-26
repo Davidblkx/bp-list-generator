@@ -7,12 +7,19 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
-      "program": "${workspaceFolder}\\app\\index.js",
-      "preLaunchTask": "tsc: build - tsconfig.json",
-      "outFiles": [
-        "${workspaceFolder}/app/**/*.js"
-      ]
+      "name": "Build launch",
+      "program": "${workspaceFolder}/app/index.js",
+      "console": "externalTerminal",
+      "cwd": "${workspaceFolder}/app",
+      "preLaunchTask": "build"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch",
+      "program": "${workspaceFolder}/app/index.js",
+      "console": "externalTerminal",
+      "cwd": "${workspaceFolder}/app"
     }
   ]
 }
