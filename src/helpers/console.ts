@@ -1,7 +1,7 @@
 // ================================================================================================
 // helper functions to handle console
 // ================================================================================================
-import { emitKeypressEvents, Key } from 'readline';
+import { createInterface, emitKeypressEvents, Key } from 'readline';
 
 /**
  * initialize the stdin key read
@@ -17,7 +17,8 @@ export function initKeyRead() {
   }
 }
 
-export async function readKey(): Promise<Key> {
+/** read a input key */
+export function readKey(): Promise<Key> {
   return new Promise(res => {
     process.stdin.on('keypress', (str, key) => {
       res(key);
@@ -25,6 +26,19 @@ export async function readKey(): Promise<Key> {
   });
 }
 
+/** ask a question and waits for a answer */
+export function question(query: string): Promise<string> {
+  return new Promise(res => {
+    createInterface(process.stdin, process.stdout)
+      .question(query, e => res(e));
+  });
+}
+
+/**
+ * read a key and makes sure it is a number
+ * @param min min bound
+ * @param max max bound
+ */
 export async function readKeyRangeDigit(min: number, max: number): Promise<number> {
   if (max <= min || max === 0) { max = 9; }
   if (min >= max || min < 0) { min = 0; }

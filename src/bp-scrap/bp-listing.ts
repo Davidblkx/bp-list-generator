@@ -1,8 +1,8 @@
 // ================================================================================================
-// functions to load Brain Pickings Posts from a CheerioStatic
+// functions to load Brain Pickings Posts one by one from a CheerioStatic
 // ================================================================================================
-import { getHtmlDocument, none, Option, some } from '../helpers';
 import { Pagination, Post, ProgressReporter, ProgressStatus } from '../models';
+import { loadBrainPickingsPage } from './common';
 import { loadTotalPages } from './load-page-list';
 import { loadBrainPickingsPost } from './load-post';
 
@@ -28,7 +28,7 @@ export function loadBrainPickingsPosts(
     _success = res;
     _error = rej;
 
-    loadBrainPickingsPage(1)
+    loadBrainPickingsPage(1, _baseUrl, _error)
       .then(
         result => {
           result
@@ -84,17 +84,7 @@ function loadPagePosts($: CheerioStatic) {
   return true;
 }
 
-const loadCurrentPage = () => loadBrainPickingsPage(_status.pages.current);
-async function loadBrainPickingsPage(page: number) {
-  const url = `${_baseUrl}/page/${page}`;
-
-  try {
-    return await getHtmlDocument(url);
-  } catch {
-    _error('error loading page: ' + url);
-    return none<CheerioStatic>();
-  }
-}
+const loadCurrentPage = () => loadBrainPickingsPage(_status.pages.current, _baseUrl, _error);
 
 function reportProgress(message?: string, post?: Post) {
   if (post) {

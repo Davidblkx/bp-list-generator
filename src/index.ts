@@ -1,5 +1,6 @@
 import { initKeyRead, readKey, readKeyRangeDigit } from './helpers/console';
-import { importPostsToFile } from './menu-options';
+import { importPostsToFile } from './menu/to-file';
+import { importToFirestore } from './menu/to-firestore';
 import { MenuOptions } from './models';
 
 const baseUrl = 'https://www.brainpickings.org';
@@ -8,19 +9,22 @@ const baseUrl = 'https://www.brainpickings.org';
 async function init() {
 
   console.clear();
-  console.info('Welcome to BrainPickings scrapper');
-  console.info('\n*** What to do? ***');
-  console.info('\n1 - Import to file');
-  console.info('\n0 - Exit');
-  console.info('\n*******************');
+  console.info('Welcome to BrainPickings scrapper\n');
+  console.info('############### *** What to do? *** #################');
+  console.info('###  1 - Import to file                           ###');
+  console.info('###  2 - Import to database (Firestore)           ###');
+  console.info('###  0 - Exit                                     ###');
+  console.info('#####################################################');
 
-  const option = <MenuOptions> (await readKeyRangeDigit(0, 1));
+  const option = <MenuOptions> (await readKeyRangeDigit(0, 2));
 
   switch (option) {
     case MenuOptions.importToFile:
       console.info('Reading posts from web...');
       await importPostsToFile(baseUrl);
-      process.exit();
+      break;
+    case MenuOptions.importToFirestore:
+      await importToFirestore(baseUrl);
       break;
     case MenuOptions.exit:
       process.exit();

@@ -1,7 +1,8 @@
 import { writeFile } from 'fs';
-import { loadBrainPickingsPosts } from './bp-scrap';
-import { tryExec } from './helpers';
-import { ProgressStatus } from './models';
+
+import { loadBrainPickingsPosts } from '../bp-scrap';
+import { tryExec } from '../helpers';
+import { ProgressStatus } from '../models';
 
 export async function importPostsToFile(baseUrl: string, fileName?: string) {
   const filePath = fileName || './post-list.json';
